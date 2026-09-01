@@ -79,13 +79,12 @@ apps/web/
 
 ---
 
-## 지도 (Google Maps JS API)
+## 지도 (Leaflet)
 
-- **ADR 2026-08-03**: Leaflet+OSM → Google Maps JavaScript API + Places API(New)로 교체. 서버(`apps/api`)가 이미 같은 Google Cloud 프로젝트의 `GOOGLE_PLACES_API_KEY`로 지오코딩에 결제 계정을 쓰고 있어 추가 결제 설정 없이 API만 더 켜면 됐고, 소규모 트래픽 기준 월 $200 무료 크레딧 내로 실사용료 0원이 유력해 Mapbox 금지 사유(유료)와 달리 채택. `@googlemaps/js-api-loader`의 신규 함수형 API(`setOptions`+`importLibrary`) 사용 — `Loader` 클래스는 deprecated.
-- 브라우저 키(`NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`)는 서버 키(`GOOGLE_PLACES_API_KEY`)와 **반드시 별도 키**로 발급하고 HTTP referrer로 제한할 것. 서버 키를 브라우저에 노출 금지 원칙과 동일.
-- Next.js SSR 이슈 회피: `dynamic(() => import('./Map'), { ssr: false })` 패턴 유지.
+- **Leaflet + OpenStreetMap**. Mapbox 금지 (유료).
+- Next.js SSR 이슈 회피: `dynamic(() => import('./Map'), { ssr: false })` 패턴.
+- 마커 클러스터링: 100개 이상부터 `leaflet.markercluster` 활성화.
 - 좌표는 항상 `{ lat: number, lng: number }` 객체로 다룰 것 (API와 일치).
-- 장소 상세정보(평점·사진·주소·영업여부)는 `google.maps.places.Place.fetchFields()`로 클라이언트에서 직접 조회 — `google_place_id`가 있는 장소만 가능.
 
 ---
 

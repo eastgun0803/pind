@@ -54,7 +54,7 @@ pind/
 
 - **Backend**: FastAPI, SQLAlchemy 2.0, Alembic, GeoAlchemy2, Pydantic v2, pytest, ruff, mypy
 - **AI**: `google-genai` (Gemini), `faster-whisper`, `yt-dlp`, Google Places API, `sentence-transformers` (dedup)
-- **Frontend Web**: Next.js 14+ (App Router, 단순화 규칙 적용), React 18, TypeScript, Tailwind, shadcn/ui, Zustand, TanStack Query, Google Maps JS API (2026-08-03 이전엔 Leaflet — `apps/web/CLAUDE.md` ADR 참고)
+- **Frontend Web**: Next.js 14+ (App Router, 단순화 규칙 적용), React 18, TypeScript, Tailwind, shadcn/ui, Zustand, TanStack Query, Leaflet
 - **Extension**: Plasmo, React, Zustand, `@plasmohq/storage`, Leaflet
 - **DB**: PostgreSQL 15 + PostGIS 3 (Supabase Cloud / 로컬은 Supabase CLI)
 - **Infra**: Docker Compose (로컬), Render or Fly.io (FastAPI 배포), Vercel (web), Supabase Cloud (DB/Auth)
